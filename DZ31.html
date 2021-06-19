@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<input type="text" value="Я тут" id="txt_1">
+<input type="text" value="" id="txt_2">
+<input type="button" value="swap" id="button">
+<script>
+    //1. При нажатии на кнопку она осуществляет обмен содержимым между двумя текстовыми инпутами.
+    const button = document.querySelector(`#button`);
+    let txt1 = document.querySelector(`#txt_1`);
+    let txt2 = document.querySelector(`#txt_2`);
+    button.addEventListener('click', swap);
+    function swap() {
+        let x = txt1.value;
+        txt1.value = txt2.value;
+        txt2.value = x;
+    }
+</script>
+
+<script>
+    //2. Даны инпуты. Сделайте так, чтобы все инпуты по потере фокуса проверяли свое содержимое на правильное количество символов.
+    // Сколько символов должно быть в инпуте, указывается в атрибуте data-length.
+    // Если вбито правильное количество, то граница инпута становится зеленой, если неправильное - красной.
+    // <input type="text" data-length="5">
+    // <input type="text" data-length="6">
+    // <input type="text" data-length="7">
+
+</script>
+
+<script>
+    //3. Добавить картинку. При нажатии на картинку она заменяется на другую, а при повторном нажатии возвращается обратно.
+
+</script>
+
+<script>
+    //4. Создать меню (панель навигации) с 5 элементами.
+    // При клике на элемент меню он посдвечивается светло-голубым с небольшой рамкой
+    // При клике на другую ссылку она становится такой же как первая, но стили с первой пропадают.
+
+</script>
+</body>
+</html>
