@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <style>
+    </style>
 </head>
 <body>
 
@@ -21,7 +23,10 @@
         txt2.value = x;
     }
 </script>
-
+<hr>
+<input type="text" data-length="5" id="five" placeholder="Введи 5 символов">
+<input type="text" data-length="6" id="six" placeholder="Введи 6 символов">
+<input type="text" data-length="7" id="seven" placeholder="Введи 7 символов">
 <script>
     //2. Даны инпуты. Сделайте так, чтобы все инпуты по потере фокуса проверяли свое содержимое на правильное количество символов.
     // Сколько символов должно быть в инпуте, указывается в атрибуте data-length.
@@ -29,14 +34,37 @@
     // <input type="text" data-length="5">
     // <input type="text" data-length="6">
     // <input type="text" data-length="7">
+    let elems = document.getElementsByTagName('input');
+    for (let i = 0; i < elems.length; i++) {
+        elems[i].addEventListener('blur', colorChange)
+    }
+    function colorChange() {
+        let correctLength = this.dataset.length;//вроде ошибка здесь, но не понимаю на что изменить dataset
+        let inputLength = this.value.length;
 
+        if (correctLength === inputLength) {
+            this.style.borderColor = 'green';
+        } else {
+            this.style.borderColor = 'red';
+        }
+    }
 </script>
-
+<hr>
+<img src="kotletki.jpg" alt="" class="img">
+<!--<img src="vykolov.jpg" alt="" id="image2" onclick="meme()">-->
 <script>
     //3. Добавить картинку. При нажатии на картинку она заменяется на другую, а при повторном нажатии возвращается обратно.
-
+     let meme = ['kotletki.jpg', 'vykolov.jpg']
+     document.querySelector('img').src = meme[0];
+     document.querySelector('img').addEventListener('click', function() {
+         if (this.src === meme[1]) {
+             this.src = meme[0];
+         } else {
+             this.src = meme[1];
+         }
+     });
 </script>
-
+<hr>
 <script>
     //4. Создать меню (панель навигации) с 5 элементами.
     // При клике на элемент меню он посдвечивается светло-голубым с небольшой рамкой
