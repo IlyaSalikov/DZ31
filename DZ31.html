@@ -91,7 +91,7 @@
     // При клике на элемент меню он посдвечивается светло-голубым с небольшой рамкой
     // При клике на другую ссылку она становится такой же как первая, но стили с первой пропадают.
     let element = document.querySelectorAll('#menu');
-    element.addEventListener('click', chooseElem);//в вебшторме оишбки нет, но браузер пишет, что слушатель не функция, я сдаюсь
+    element.addEventListener('click', chooseElem);//в вебшторме оишбки нет, но браузер пишет, что слушатель не функция и ничего не работает, я сдаюсь
 
     function chooseElem(a) {
         if (a.classList.contains("menu")) {
