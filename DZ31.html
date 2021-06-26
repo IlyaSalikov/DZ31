@@ -4,6 +4,22 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <style>
+        .header {
+            display: flex;
+            justify-content: space-around;
+            width: 1000px;
+            font-family: "Times New Roman",sans-serif;
+            font-size: large;
+            list-style: none;
+        }
+        .menu {
+            border: 1px solid #000000;
+            background-color: aqua;
+            color: #000000;
+            padding: 3px;
+            border-radius: 5px;
+            text-decoration: none;
+        }
     </style>
 </head>
 <body>
@@ -39,7 +55,7 @@
         elems[i].addEventListener('blur', colorChange)
     }
     function colorChange() {
-        let correctLength = this.dataset.length;//вроде ошибка здесь, но не понимаю на что изменить dataset
+        let correctLength = this.dataset.length;//если dataset, то всё красное, если value - то всё зелёное
         let inputLength = this.value.length;
 
         if (correctLength === inputLength) {
@@ -50,26 +66,42 @@
     }
 </script>
 <hr>
-<img src="kotletki.jpg" alt="" class="img">
-<!--<img src="vykolov.jpg" alt="" id="image2" onclick="meme()">-->
+<img src="kotletki.jpg" alt="" id="img" onclick="meme()">
+<!--<img src="vykolov.jpg" alt="" id="img" onclick="meme()">-->
 <script>
     //3. Добавить картинку. При нажатии на картинку она заменяется на другую, а при повторном нажатии возвращается обратно.
-     let meme = ['kotletki.jpg', 'vykolov.jpg']
-     document.querySelector('img').src = meme[0];
-     document.querySelector('img').addEventListener('click', function() {
-         if (this.src === meme[1]) {
-             this.src = meme[0];
+     function meme() {
+         if (document.getElementById('img').src === "kotletki.jpg") {
+             document.getElementById('img').src = "vykolov.jpg"
          } else {
-             this.src = meme[1];
+             document.getElementById('img').src = "kotletki.jpg"
          }
-     });
+     }
 </script>
 <hr>
+<ul class="header">
+    <li><a href="#" class="menu" onclick="chooseElem()">Чем мы занимаемся</a></li>
+    <li><a href="#" onclick="chooseElem()">Наши продукты</a></li>
+    <li><a href="#" onclick="chooseElem()">Дополнительная Информация</a></li>
+    <li><a href="#" onclick="chooseElem()">Партнёры</a></li>
+    <li><a href="#" onclick="chooseElem()">Вход</a></li>
+</ul>
 <script>
     //4. Создать меню (панель навигации) с 5 элементами.
     // При клике на элемент меню он посдвечивается светло-голубым с небольшой рамкой
     // При клике на другую ссылку она становится такой же как первая, но стили с первой пропадают.
+    let element = document.querySelectorAll('#menu');
+    element.addEventListener('click', chooseElem);//в вебшторме оишбки нет, но браузер пишет, что слушатель не функция, я сдаюсь
 
+    function chooseElem(a) {
+        if (a.classList.contains("menu")) {
+            const elems = document.getElementsByClassName("menu");
+            for (let i of elems) {
+                i.classList.remove("menu");
+            }
+            a.classList.add("menu");
+        }
+    }
 </script>
 </body>
 </html>
